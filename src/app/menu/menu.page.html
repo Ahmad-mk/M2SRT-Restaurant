@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+     Mes Restaurants
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+        <img src="/assets/logo1.png" alt="" />
+        <ion-card-header>
+            <ion-card-subtitle>Bienvenue</ion-card-subtitle>
+            <ion-card-title></ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+                <p>
+                      Bienvenue
+                  SN Miaam est une chaine de restaurant senegalaise ouverte
+                  au monde car explorant toute les saveurs du monde 
+                  nous vous invitions a venir deguster nos menu passant de la cuisine 
+                  urvaine a la gastronomie du mode 
+                  Bienvenue chez vous !!
+                </p>
+        </ion-card-content>
+    </ion-card>
+
+  <agm-map  [latitude]="lat" [longitude]="lng" [zoom]="13">
+    <agm-marker
+      [latitude]="lat"
+      [longitude]="lng"
+      (markerClick)="onMarkerClick()"
+    ></agm-marker>
+    <agm-marker *ngFor=" let coords of resto"
+    [latitude]="coords.Latitude"
+    [longitude]="coords.Longitude"
+    (markerClick)="onMarkerClick()"
+  ></agm-marker>
+  </agm-map>  
+</ion-content>
